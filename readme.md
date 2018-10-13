@@ -13,21 +13,21 @@ Thin wrapper for [Cloudflare Workers KV](https://developers.cloudflare.com/worke
 ## Usage
 
 ```js
-const CloudflareKV = require("cloudflare-kv")
+const CloudflareKV = require("cloudflare-kv");
 
 const kv = new CloudflareKV({
   accountId: "<Cloudflare-Account-Id>",
   email: "<Cloudflare-Email>",
   key: "<Cloudflare-API-Key>",
   namespaceId: "<Cloudflare-Workers-KV-Namespace-Id>"
-})
+});
 
 await kv.put("key", { workers: "kv" });
 
 const value = await kv.get("key");
 // { workers: "kv" }
 
-await kv.delete("key)
+await kv.delete("key");
 ```
 
 ## Development
