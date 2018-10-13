@@ -1,4 +1,4 @@
-# cloudflare-kv ![CI status](https://travis-ci.org/Zertz/cloudflare-kv.svg?branch=master)
+# cloudflare-kv [![Build Status](https://travis-ci.org/Zertz/cloudflare-kv.svg?branch=master)](https://travis-ci.org/Zertz/cloudflare-kv)
 
 Thin wrapper for [Cloudflare Workers KV](https://developers.cloudflare.com/workers/kv/)
 
