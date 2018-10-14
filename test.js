@@ -24,6 +24,12 @@ const options = {
   namespaceId
 };
 
+async function wait(t) {
+  await new Promise(resolve => setTimeout(resolve, 5000));
+
+  t.is(true, true);
+}
+
 test("delete 400", async t => {
   const kv = new CloudflareKV(fakeOptions);
 
@@ -54,26 +60,6 @@ test("put 400", async t => {
   t.is(error.statusCode, 400);
 });
 
-test("delete 404", async t => {
-  const kv = new CloudflareKV(options);
-
-  const error = await t.throwsAsync(() => {
-    return kv.delete("kv");
-  });
-
-  t.is(error.statusCode, 404);
-});
-
-test("get 404", async t => {
-  const kv = new CloudflareKV(options);
-
-  const error = await t.throwsAsync(() => {
-    return kv.get("kv");
-  });
-
-  t.is(error.statusCode, 404);
-});
-
 test("put", async t => {
   const kv = new CloudflareKV(options);
 
@@ -82,11 +68,7 @@ test("put", async t => {
   t.is(result, true);
 });
 
-test("wait", async t => {
-  await new Promise(resolve => setTimeout(resolve, 10000));
-
-  t.is(true, true);
-});
+test("wait (put)", wait);
 
 test("get", async t => {
   const kv = new CloudflareKV(options);
@@ -102,4 +84,26 @@ test("delete", async t => {
   const result = await kv.delete("kv");
 
   t.is(result, true);
+});
+
+test("wait (delete)", wait);
+
+test("get 404", async t => {
+  const kv = new CloudflareKV(options);
+
+  const error = await t.throwsAsync(() => {
+    return kv.get("kv");
+  });
+
+  t.is(error.statusCode, 404);
+});
+
+test("delete 404", async t => {
+  const kv = new CloudflareKV(options);
+
+  const error = await t.throwsAsync(() => {
+    return kv.delete("kv");
+  });
+
+  t.is(error.statusCode, 404);
 });
