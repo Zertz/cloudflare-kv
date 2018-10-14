@@ -12,6 +12,23 @@ Thin wrapper for [Cloudflare Workers KV](https://developers.cloudflare.com/worke
 
 ## Usage
 
+### Environment variables
+
+```
+CLOUDFLARE_ACCOUNT_ID=<Cloudflare-Account-Id>
+CLOUDFLARE_EMAIL=<Cloudflare-Email>
+CLOUDFLARE_KEY=<Cloudflare-API-Key>
+CLOUDFLARE_NAMESPACE_ID=<Cloudflare-Workers-KV-Namespace-Id>
+```
+
+```js
+const CloudflareKV = require("cloudflare-kv");
+
+const kv = new CloudflareKV();
+```
+
+### Local variables
+
 ```js
 const CloudflareKV = require("cloudflare-kv");
 
@@ -21,7 +38,11 @@ const kv = new CloudflareKV({
   key: "<Cloudflare-API-Key>",
   namespaceId: "<Cloudflare-Workers-KV-Namespace-Id>"
 });
+```
 
+### Writing, reading and deleting data
+
+```js
 await kv.put("key", { workers: "kv" });
 
 const value = await kv.get("key");

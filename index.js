@@ -12,11 +12,18 @@ function getUrl(accountId, namespaceId, key) {
 }
 
 class CloudflareKV {
-  constructor(options) {
-    this.accountId = options.accountId;
-    this.email = options.email;
-    this.key = options.key;
-    this.namespaceId = options.namespaceId;
+  constructor(options = {}) {
+    const {
+      CLOUDFLARE_ACCOUNT_ID,
+      CLOUDFLARE_EMAIL,
+      CLOUDFLARE_KEY,
+      CLOUDFLARE_NAMESPACE_ID
+    } = process.env;
+
+    this.accountId = options.accountId || CLOUDFLARE_ACCOUNT_ID;
+    this.email = options.email || CLOUDFLARE_EMAIL;
+    this.key = options.key || CLOUDFLARE_KEY;
+    this.namespaceId = options.namespaceId || CLOUDFLARE_NAMESPACE_ID;
   }
 
   async delete(key) {

@@ -5,8 +5,8 @@ import CloudflareKV from "./";
 
 const {
   CLOUDFLARE_ACCOUNT_ID: accountId,
-  CLOUDFLARE_AUTH_EMAIL: email,
-  CLOUDFLARE_AUTH_KEY: key,
+  CLOUDFLARE_EMAIL: email,
+  CLOUDFLARE_KEY: key,
   CLOUDFLARE_NAMESPACE_ID: namespaceId
 } = process.env;
 
