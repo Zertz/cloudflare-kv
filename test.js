@@ -83,7 +83,7 @@ test("put", async t => {
 });
 
 test("wait", async t => {
-  await new Promise(resolve => setTimeout(resolve, 5000));
+  await new Promise(resolve => setTimeout(resolve, 10000));
 
   t.is(true, true);
 });
