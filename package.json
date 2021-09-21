@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "ava": "^1.0.0-beta.8",
-    "dotenv-safe": "^6.1.0",
+    "dotenv-safe": "^8.2.0",
     "prettier": "^2.4.1"
   }
 }
