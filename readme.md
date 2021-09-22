@@ -1,14 +1,12 @@
-# cloudflare-kv [![Build Status](https://travis-ci.org/Zertz/cloudflare-kv.svg?branch=master)](https://travis-ci.org/Zertz/cloudflare-kv)
+# cloudflare-kv
 
-Thin wrapper for [Cloudflare Workers KV](https://developers.cloudflare.com/workers/kv/)
+> Thin wrapper for [Cloudflare Workers KV](https://developers.cloudflare.com/workers/learning/how-kv-works)
 
 ## Installation
 
-### Requirements
+> Requires Node.js 14 and up
 
-- Node.js 8 and up
-
-`npm i cloudflare-kv` **or** `yarn add cloudflare-kv`
+`npm install cloudflare-kv` **or** `yarn add cloudflare-kv`
 
 ## Usage
 
@@ -16,13 +14,12 @@ Thin wrapper for [Cloudflare Workers KV](https://developers.cloudflare.com/worke
 
 ```
 CLOUDFLARE_ACCOUNT_ID=<Cloudflare-Account-Id>
-CLOUDFLARE_EMAIL=<Cloudflare-Email>
-CLOUDFLARE_KEY=<Cloudflare-API-Key>
+CLOUDFLARE_TOKEN=<Cloudflare-API-Token>
 CLOUDFLARE_NAMESPACE_ID=<Cloudflare-Workers-KV-Namespace-Id>
 ```
 
 ```js
-const CloudflareKV = require("cloudflare-kv");
+import CloudflareKV from "cloudflare-kv";
 
 const kv = new CloudflareKV();
 ```
@@ -34,9 +31,8 @@ const CloudflareKV = require("cloudflare-kv");
 
 const kv = new CloudflareKV({
   accountId: "<Cloudflare-Account-Id>",
-  email: "<Cloudflare-Email>",
-  key: "<Cloudflare-API-Key>",
-  namespaceId: "<Cloudflare-Workers-KV-Namespace-Id>"
+  apiToken: "<Cloudflare-API-Token>",
+  namespaceId: "<Cloudflare-Workers-KV-Namespace-Id>",
 });
 ```
 
