@@ -1,4 +1,5 @@
 import dotenv from "dotenv-safe";
+import crypto from "crypto";
 import test from "ava";
 import CloudflareKV from "./index.mjs";
 
@@ -15,6 +16,8 @@ const options = {
   apiToken: process.env.CLOUDFLARE_API_TOKEN,
   namespaceId: process.env.CLOUDFLARE_NAMESPACE_ID,
 };
+
+const key = crypto.randomBytes(32).toString("hex");
 
 async function wait(t) {
   await new Promise((resolve) => setTimeout(resolve, 10000));
@@ -46,7 +49,7 @@ test("put 400", async (t) => {
   const kv = new CloudflareKV(fakeOptions);
 
   const error = await t.throwsAsync(() => {
-    return kv.put("kv", { got: "ava" });
+    return kv.put("kv", { [key]: "ava" });
   });
 
   t.is(error.response.statusCode, 400);
@@ -55,7 +58,7 @@ test("put 400", async (t) => {
 test("put", async (t) => {
   const kv = new CloudflareKV(options);
 
-  const result = await kv.put("kv", { got: "ava" });
+  const result = await kv.put("kv", { [key]: "ava" });
 
   t.is(result, undefined);
 });
@@ -67,7 +70,7 @@ test("get", async (t) => {
 
   const result = await kv.get("kv");
 
-  t.deepEqual(result, { got: "ava" });
+  t.deepEqual(result, { [key]: "ava" });
 });
 
 test("delete", async (t) => {
