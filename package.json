@@ -6,7 +6,7 @@
   "author": "Pier-Luc Gendreau",
   "license": "MIT",
   "scripts": {
-    "test": "ava --serial --timeout=11s"
+    "test": "ava --serial"
   },
   "dependencies": {
     "got": "^11.8.2"

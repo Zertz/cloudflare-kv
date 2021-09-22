@@ -20,7 +20,7 @@ const options = {
 const key = crypto.randomBytes(32).toString("hex");
 
 async function wait(t) {
-  await new Promise((resolve) => setTimeout(resolve, 10000));
+  await new Promise((resolve) => setTimeout(resolve, 5000));
 
   t.is(true, true);
 }
@@ -49,16 +49,4 @@ test("delete", async (t) => {
   const result = await kv.delete(key);
 
   t.is(result, undefined);
-});
-
-test("wait (delete)", wait);
-
-test("get 404", async (t) => {
-  const kv = new CloudflareKV(options);
-
-  const error = await t.throwsAsync(() => {
-    return kv.get(key);
-  });
-
-  t.is(error.response.statusCode, 404);
 });
