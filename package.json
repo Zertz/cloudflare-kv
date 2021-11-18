@@ -9,7 +9,7 @@
     "test": "ava --serial"
   },
   "dependencies": {
-    "got": "^11.8.2"
+    "got": "^11.8.3"
   },
   "devDependencies": {
     "ava": "^3.15.0",
