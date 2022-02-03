@@ -1,5 +1,7 @@
 # cloudflare-kv
 
+[![npm](https://badgen.net/npm/v/cloudflare-kv)](https://www.npmjs.com/package/cloudflare-kv) [![bundlephobia](https://badgen.net/bundlephobia/minzip/cloudflare-kv)](https://bundlephobia.com/result?p=cloudflare-kv)
+
 > Thin wrapper for [Cloudflare Workers KV](https://developers.cloudflare.com/workers/learning/how-kv-works)
 
 ## Installation
