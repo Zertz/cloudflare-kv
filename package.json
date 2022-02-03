@@ -1,6 +1,6 @@
 {
   "name": "cloudflare-kv",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "index.mjs",
   "repository": "https://github.com/Zertz/cloudflare-kv",
   "author": "Pier-Luc Gendreau",
